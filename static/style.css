@@ -1,0 +1,20 @@
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a{
+position:relative;
+text-decoration:none
+
+}
+
+
+.banner{
+
+background-color:#FA8072;
+width:100%;
+height:60px;
+margin-bottom:50px;
+}

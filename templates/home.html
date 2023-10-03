@@ -1,0 +1,108 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-6">
+            <form method="POST" enctype="multipart/form-data" class="p-3 shadow">
+    {% csrf_token %}
+    <div class="form-group">
+        <input type="text" name="name" class="form-control" placeholder="Enter player name">
+    </div>
+    <div class="form-group">
+        <input type="text" name="nationality" class="form-control" placeholder="Nationality">
+    </div>
+    <div class="form-group">
+        <input type="text" name="state" class="form-control" placeholder="Enter player state">
+    </div>
+    <div class="form-group">
+        <input type="text" name="match" class="form-control" placeholder="Matches played">
+    </div>
+    <div class="form-group">
+        <input type="text" name="run" class="form-control" placeholder="Enter player total runs">
+    </div>
+    <div class="form-group">
+        <input type="text" name="average" class="form-control" placeholder="Enter player average">
+    </div>
+    <div class="form-group">
+     <input type="text" name="wicket" class="form-control" placeholder="Enter player wicket taken">
+        </div>
+     <div class="form-group">
+     <input type="date" name="date" class="form-control" placeholder="Enter the date">
+        </div>
+<!--     <div class="form-group">-->
+<!--     <input type="file" name="image">-->
+<!--     </div>-->
+       <br>
+      <input type="submit" class="btn btn-success">
+</form>
+            </div>
+        <div class="col-md-6">
+<!--            {% for i in top %}-->
+<!--            <div class="card-shadow">-->
+<!--                <div class="card-body">-->
+<!--                 <p class ="card-title">Name:{{i.name}}</p>-->
+<!--                 <p class ="card-title">Nationality :{{i.nationality}}</p>-->
+<!--                 <p class ="card-title">State :{{i.state}}</p>-->
+<!--                 <p class ="card-title">Matches :{{i.matches}}</p>-->
+<!--                 <p class ="card-title">Runs :{{i.runs}}</p>-->
+<!--                 <p class ="card-title">Average  :{{i.average}}</p>-->
+<!--                 <p class ="card-title">Wickets :{{i.wickets}}</p>-->
+<!--                   <a class="btn btn-danger">Done</a>-->
+<!--                </div>-->
+<!--            </div><br>-->
+<!--           {% endfor %}-->
+            {% for i in top %}
+            <div class="shadow card">
+           <h4 class="card-header">{{i.name}}</h4>
+           <div class="card-body">
+               <p class="card-title"><b>Total Matches</b> : {{i.matches}} </p>
+           <p class="card-title"><b>Total Runs</b> : {{i.runs}} </p>
+               <p class="card-title"><b>Date</b> : {{i.date}} </p>
+<!--               <div class="start-btn">-->
+               <a class="btn btn-success" href="{% url 'update' i.id %}" >Update</a>
+               <a class="btn btn-primary" href="{% url 'delete' i.id %}">Done</a>
+
+<!--               </div>-->
+
+                 </div>
+
+        </div><br>
+          {% endfor %}
+        </div>
+    </div>
+
+<!--<table class="table table-bordered">-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--      <th scope="col">Player Name</th>-->
+<!--      <th scope="col">Nationality</th>-->
+<!--      <th scope="col">State</th>-->
+<!--      <th scope="col">Matches</th>-->
+<!--        <th scope="col">Runs</th>-->
+<!--      <th scope="col">Average</th>-->
+<!--        <th scope="col">Wickects</th>-->
+<!--&lt;!&ndash;      <th scope="col">photo</th>&ndash;&gt;-->
+<!--    </tr>-->
+<!--  </thead>-->
+<!--    <tbody>-->
+<!--    {% for i in top %}-->
+<!--    <tr>-->
+
+<!--      <td scope="row">{{i.name}}</td>-->
+<!--      <td>{{i.nationality}}</td>-->
+<!--      <td>{{i.state}}</td>-->
+<!--      <td>{{i.matches}}</td>-->
+<!--        <td>{{i.runs}}</td>-->
+<!--      <td>{{i.average}}</td>-->
+<!--      <td>{{i.wickets}}</td>-->
+<!--&lt;!&ndash;        <td>{{i.img.url}}</td>&ndash;&gt;-->
+
+<!--    </tr>-->
+<!--     {% endfor %}-->
+<!--    </tbody><br>-->
+<!--</table>-->
+{% endblock %}
+
+
